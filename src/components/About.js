@@ -1,14 +1,22 @@
 import React from "react";
+import Links from "./Links";
 
-function About() {
+function About(prop) {
   return (
     <div id="about">
       <h2>About Me</h2>
-      <p>Put the bio in here</p>
+      {renderBio(prop.bio)}
       <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-      {/* add your <Links /> component here */}
+      <Links links={prop.links}/>
     </div>
   );
+}
+
+function renderBio(bio) {
+  if(bio && bio !== "") {
+    return <p>{bio}</p>;
+  }
+  return;
 }
 
 export default About;
